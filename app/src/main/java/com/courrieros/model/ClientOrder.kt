@@ -1,9 +1,10 @@
 package com.courrieros.model
 
 data class ClientOrder(
-        val client: String,
+        val clientName: String,
         val order: Int,
-        val distance: Double
+        val distance: Double,
+        val co2Saved: Double
 )
 
 
