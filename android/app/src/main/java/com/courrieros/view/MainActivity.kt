@@ -2,15 +2,15 @@ package com.courrieros.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import com.courrieros.model.ClientOrder
-import com.courrieros.model.ClientTotals
-import com.courrieros.reader.CsvReader
-import kotlinx.android.synthetic.main.activity_main.*
 import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import com.courrieros.R
+import com.courrieros.controller.MainController
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private val controller = MainController()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,15 +19,8 @@ class MainActivity : AppCompatActivity() {
         rvClient.layoutManager = LinearLayoutManager(this)
         rvClient.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
 
-        val list: List<ClientOrder> = CsvReader().readInputIntoList(resources.openRawResource(R.raw.client_orders))
-        val grouped: Map<String, List<ClientOrder>> = list.groupBy { it.clientName }
-        val listaSomada = grouped.entries.map {
-            val name = it.key
-            val totalSaved = it.value.sumByDouble { it.co2Saved }
-            ClientTotals(name, totalSaved)
-        }
-
-        rvClient.adapter = ClientAdapter(listaSomada, this)
+        val clientTotals = controller.getClientTotals(resources)
+        rvClient.adapter = ClientAdapter(clientTotals, this)
     }
 }
 

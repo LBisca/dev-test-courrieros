@@ -2,8 +2,9 @@ package com.courrieros.reader
 
 import com.courrieros.Constant
 import com.courrieros.model.ClientOrder
-import java.io.*
-import java.util.*
+import java.io.BufferedReader
+import java.io.InputStream
+import java.io.InputStreamReader
 
 class CsvReader {
     fun readInput(inputStream: InputStream): String {
