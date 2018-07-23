@@ -1,4 +1,4 @@
-package com.courrieros
+package com.courrieros.view
 
 import android.content.Context
 import kotlinx.android.synthetic.main.client_list.view.*
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.widget.TextView
+import com.courrieros.R
 import com.courrieros.model.ClientTotals
 
 class ClientAdapter(

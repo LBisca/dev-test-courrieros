@@ -26,7 +26,6 @@ class CsvReader {
 
             val co2Saved = (distance / 1000) * Constant.CO2_SAFE_PER_KM
             ClientOrder(clientName, order.toInt(), distance, co2Saved)
-
         }
     }
 

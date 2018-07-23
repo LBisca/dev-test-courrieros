@@ -1,4 +1,4 @@
-package com.courrieros
+package com.courrieros.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -8,6 +8,7 @@ import com.courrieros.model.ClientTotals
 import com.courrieros.reader.CsvReader
 import kotlinx.android.synthetic.main.activity_main.*
 import android.support.v7.widget.DividerItemDecoration
+import com.courrieros.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         rvClient.adapter = ClientAdapter(listaSomada, this)
-
     }
 }
 
