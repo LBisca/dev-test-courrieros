@@ -18,16 +18,16 @@ class CsvReader {
         val bufferedReader = BufferedReader(reader)
         val list = readLines(bufferedReader, mutableListOf())
 
-         return list.map {
-             val arguments = it.split(",")
-             val clientName = arguments[0]
-             val order = arguments[1]
-             val distance = arguments[2].toDouble()
+        return list.map {
+            val arguments = it.split(",")
+            val clientName = arguments[0]
+            val order = arguments[1]
+            val distance = arguments[2].toDouble()
 
-             val co2Saved = (distance / 1000) * Constant.CO2_SAFE_PER_KM
-             ClientOrder(clientName, order.toInt(), distance, co2Saved)
+            val co2Saved = (distance / 1000) * Constant.CO2_SAFE_PER_KM
+            ClientOrder(clientName, order.toInt(), distance, co2Saved)
 
-         }
+        }
     }
 
     private fun read(bufferedReader: BufferedReader, accumulator: String): String {
@@ -46,7 +46,7 @@ class CsvReader {
         val newLine = bufferedReader.readLine()
         return if (newLine != null) {
             list.add(newLine)
-            readLines(bufferedReader,list)
+            readLines(bufferedReader, list)
         } else {
             list
         }

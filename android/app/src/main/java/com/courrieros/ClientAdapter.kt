@@ -6,9 +6,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.view.LayoutInflater
+import android.widget.TextView
 import com.courrieros.model.ClientTotals
 
-class ClientAdapter (val items : List<ClientTotals>, val context: Context ) : RecyclerView.Adapter<ViewHolder>() {
+class ClientAdapter(
+        private val items: List<ClientTotals>,
+        private val context: Context
+) : RecyclerView.Adapter<ViewHolder>() {
 
     override fun getItemCount(): Int {
         return items.size
@@ -24,9 +28,9 @@ class ClientAdapter (val items : List<ClientTotals>, val context: Context ) : Re
     }
 }
 
-class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
-    val tvClientName = view.client_name
-    val tvTotalSaved = view.total_saved
+class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    val tvClientName: TextView = view.client_name
+    val tvTotalSaved: TextView = view.total_saved
 }
 
 

@@ -9,8 +9,6 @@ import com.courrieros.reader.CsvReader
 import kotlinx.android.synthetic.main.activity_main.*
 import android.support.v7.widget.DividerItemDecoration
 
-
-
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +29,6 @@ class MainActivity : AppCompatActivity() {
         rvClient.adapter = ClientAdapter(listaSomada, this)
 
     }
-
-
 }
 
 
