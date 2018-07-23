@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rv_client_list.layoutManager = LinearLayoutManager(this)
-        rv_client_list.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        rvClient.layoutManager = LinearLayoutManager(this)
+        rvClient.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
 
         val list: List<ClientOrder> = CsvReader().readInputIntoList(resources.openRawResource(R.raw.client_orders))
         val grouped: Map<String, List<ClientOrder>> = list.groupBy { it.clientName }
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             ClientTotals(name, totalSaved)
         }
 
-        rv_client_list.adapter = ClientAdapter(listaSomada, this)
+        rvClient.adapter = ClientAdapter(listaSomada, this)
 
     }
 
