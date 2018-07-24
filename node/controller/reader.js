@@ -1,5 +1,5 @@
-const fs = require('fs');
-const CsvReadableStream = require('csv-reader');
+const fs = require('fs')
+const CsvReadableStream = require('csv-reader')
 
 var groupBy = (array, key) => {
     return array.reduce((acc, element) => {
@@ -10,8 +10,8 @@ var groupBy = (array, key) => {
             acc[name].push(element)
         }
 
-        return acc;
-    }, {});
+        return acc
+    }, {})
 };
 
 var sumBy = (array, key) => {
@@ -42,11 +42,11 @@ async function readCsv() {
                     totalList.push({
                         name: company,
                         total: total
-                    });
+                    })
                 }
 
                 resolve(totalList)
-            });
+            })
     })
 }
 
