@@ -11,7 +11,11 @@ class CsvReader {
         val reader = InputStreamReader(inputStream)
         val bufferedReader = BufferedReader(reader)
 
-        return read(bufferedReader, "")
+        val result = read(bufferedReader, "")
+
+        bufferedReader.close()
+        reader.close()
+        return result
     }
 
     fun readInputIntoList(inputStream: InputStream): List<ClientOrder> {
