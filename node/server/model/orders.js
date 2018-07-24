@@ -8,11 +8,11 @@ var Order = mongoose.model('company', {
     order: {
         type: String,
         required: true
-    },      
+    },
     distance: {
         type: String,
         required: true
     }
 })
 
-module.exports = {Order}
+module.exports = { Order }

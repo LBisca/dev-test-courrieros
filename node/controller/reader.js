@@ -26,28 +26,29 @@ async function readCsv() {
         var orderList = []
         var totalList = []
 
-        inputStream.pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
-        .on('data', row => {
-            let co2 = (row[2] / 1000) * 0.113
-            orderList.push({ name: row[0], order: row[1], distance: row[2], co2: co2 })
-        })
-        .on('end', data => {
-            orderList = groupBy(orderList, 'name')
+        inputStream
+            .pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
+            .on('data', row => {
+                let co2 = (row[2] / 1000) * 0.113
+                orderList.push({ name: row[0], order: row[1], distance: row[2], co2: co2 })
+            })
+            .on('end', data => {
+                orderList = groupBy(orderList, 'name')
 
-            for (var company in orderList) {
-                let companyOrders = orderList[company]
-                let total = sumBy(companyOrders, "co2")
+                for (var company in orderList) {
+                    let companyOrders = orderList[company]
+                    let total = sumBy(companyOrders, "co2")
 
-                totalList.push({
-                    name: company,
-                    total: total
-                });
-            }
-        
-            resolve(totalList)    
-        });
-    })   
+                    totalList.push({
+                        name: company,
+                        total: total
+                    });
+                }
+
+                resolve(totalList)
+            });
+    })
 }
 
 
-module.exports = {readCsv}
+module.exports = { readCsv }
