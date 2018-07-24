@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -14,6 +15,7 @@
   "dependencies": {
     "csv-reader": "^1.0.3",
     "express": "^4.16.3",
+    "heroku": "^7.7.4",
     "mongoose": "^5.2.5"
   }
 }
